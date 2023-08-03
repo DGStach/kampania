@@ -23,13 +23,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ModalComponent} from "./modal/modal.component";
 import { NewProductComponent } from './new-product/new-product.component';
 import {DropDownListModule} from "@syncfusion/ej2-angular-dropdowns";
+import { BudgetComponent } from './budget/budget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     ModalComponent,
-    NewProductComponent
+    NewProductComponent,
+    BudgetComponent
   ],
   imports: [
     BrowserModule,
