@@ -1,0 +1,15 @@
+.product-template-Card{
+  border: grey;
+  background: rgb(131,131,163);
+  background: linear-gradient(90deg, rgb(203, 183, 83) 0%, rgba(239, 225, 83, 0.6) 52%, rgba(239, 225, 83, 0.6) 100%);
+  padding: 10px;
+  width: 200px;
+  list-style: none;
+  margin: 10px;
+
+}
+.container-product-Cards{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

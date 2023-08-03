@@ -1,0 +1,24 @@
+<div class="modal-template-container">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">{{product.name}}</h5>
+  </div>
+  <div class="modal-body">
+    <label class="modal-body-label" for="cost">cost: </label>
+    <input class="modal-body-input" id="cost" [(ngModel)]="product.cost" placeholder="cost">
+    <ejs-dropdownlist [(ngModel)]="product.city" [dataSource]="cities" [fields]="dataFields"
+    placeholder="select a city">
+    </ejs-dropdownlist>
+    <label class="modal-body-label" for="scope">scope: </label>
+    <input class="modal-body-input" id="scope" [(ngModel)]="product.scope" placeholder="scope">
+    <label class="modal-body-label" for="name">name: </label>
+    <input class="modal-body-input" id="name" [(ngModel)]="product.name" placeholder="name">
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="close()">
+      Close
+    </button>
+    <button type="button" class="btn btn-primary" (click)="save()">Save changes</button>
+  </div>
+
+</div>
