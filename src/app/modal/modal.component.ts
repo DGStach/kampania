@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { Product } from '../product';
-import {City} from "../city";
-
+import {Keyword, keywords} from '../mock-keywords'
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -19,19 +18,21 @@ export class ModalComponent {
     keywords:[],
     includeInBudget: true
   };
-
-  public  dataFields:Object = {text:'city', value:'Id'}
-  public cities: City[] = [
-    {Id:'Cracow', city: "Rzeszow"},
-    {Id:'Gdansk', city: "Nowy Sącz"},
-    {Id:'Limanowa', city: "Limanowa"},
-    {Id:'Cracow', city: "Cracow"},
-    {Id:'Gdansk', city: "Gdansk"},
-    {Id:'Limanowa', city: "Nowy Targ"}
-  ];
+  keywords:Keyword[]
 
   constructor(public modalRef: MdbModalRef<ModalComponent>) {
+
+    this.keywords = keywords
   }
+
+  cities = [
+    {city: "Rzeszow"},
+    {city: "Nowy Sącz"},
+    {city: "Limanowa"},
+    {city: "Cracow"},
+    {city: "Gdansk"},
+    {city: "Nowy Targ"}
+  ];
 
   save() {
     this.modalRef.close({

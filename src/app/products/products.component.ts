@@ -16,21 +16,18 @@ export class ProductsComponent {
   products = allproducts
   modalRef: MdbModalRef<ModalComponent> | null = null;
   selectedProduct?: Product
-
   constructor(
     private modalService: MdbModalService, public budgetService: BudgetService) {
   }
-
-  checkValue(ev:any, product:any):void {
+  checkValue(ev: any, product: any): void {
     product.includeInBudget = ev.currentTarget.checked;
- allproducts.forEach((el, index) => {
-     if (el.id === product.id) {
-       allproducts[index] = el
-     }
-   }
- )
+    allproducts.forEach((el, index) => {
+        if (el.id === product.id) {
+          allproducts[index] = el
+        }
+      }
+    )
   }
-
   delete(id: string) {
     allproducts.forEach((product) => {
       if (product.id == id) {
@@ -41,7 +38,6 @@ export class ProductsComponent {
       }
     })
   }
-
   openModal(product: Product): void {
     this.modalRef = this.modalService.open(ModalComponent,
       {

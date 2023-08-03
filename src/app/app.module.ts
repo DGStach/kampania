@@ -22,9 +22,9 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ModalComponent} from "./modal/modal.component";
 import { NewProductComponent } from './new-product/new-product.component';
-import {DropDownListModule} from "@syncfusion/ej2-angular-dropdowns";
 import { BudgetComponent } from './budget/budget.component';
 import {BudgetService} from "./budget/budget-service";
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,7 @@ import {BudgetService} from "./budget/budget-service";
     MdbTooltipModule,
     MdbValidationModule,
     BrowserAnimationsModule,
-    DropDownListModule
+    NgSelectModule
 ],
   providers: [BudgetService],
   bootstrap: [AppComponent]

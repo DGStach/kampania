@@ -24,6 +24,8 @@
           <div><span>scope: </span>{{product.scope}}</div>
           <div><span>budget: </span>{{product.includeInBudget}}</div>
 
+          <label class="modal-body-label" for="name">keywords: </label>
+          <input class="modal-body-input" id="name" [(ngModel)]="product.keywords" placeholder="keywords">
         </button>
     </li>
   </ul>
