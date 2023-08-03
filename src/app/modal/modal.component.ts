@@ -9,12 +9,13 @@ import {City} from "../city";
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
-  @Input() product: Product = {
+    @Input() product: Product = {
     id: "",
     name: '',
     cost: 0,
     city: '',
-    scope: ''
+    scope: '',
+    keywords:[]
   };
 
   public  dataFields:Object = {text:'city', value:'Id'}

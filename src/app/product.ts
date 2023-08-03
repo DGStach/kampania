@@ -4,4 +4,6 @@ export interface Product {
   cost: number;
   scope: string;
   city: string;
+  keywords:string[]
+
 }
