@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { Product } from '../product';
-import { cities } from '../mock-cities';
 import {City} from "../city";
 
 @Component({
@@ -10,7 +9,6 @@ import {City} from "../city";
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
-  @Input() modalNewProductOpen: boolean = false;
   @Input() product: Product = {
     id: "",
     name: '',
@@ -32,7 +30,6 @@ export class ModalComponent {
   constructor(public modalRef: MdbModalRef<ModalComponent>) {}
 
   save() {
-    this.modalNewProductOpen = true;
     this.modalRef.close({
       save: true,
       product: this.product
@@ -40,7 +37,6 @@ export class ModalComponent {
   }
 
   close() {
-    this.modalNewProductOpen = true;
     this.modalRef.close({
       save: false,
       product: this.product

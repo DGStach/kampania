@@ -10,13 +10,9 @@ import {ProductModalCloseResult} from "../productModalCloseResult";
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-
-
 export class ProductsComponent {
   products = allproducts
   modalRef: MdbModalRef<ModalComponent> | null = null;
-  modalUpdateProductOpen: boolean = false;
-
   selectedProduct?: Product
 
   constructor(
@@ -32,18 +28,14 @@ export class ProductsComponent {
     })
   }
 
-
   openModal(product: Product): void {
-    if (!this.modalUpdateProductOpen) {
-      this.modalUpdateProductOpen = true;
-
     this.modalRef = this.modalService.open(ModalComponent,
-      {ignoreBackdropClick:true,backdrop:false,
+      {
+        ignoreBackdropClick: true, backdrop: false,
         data: {
           product: {...product}
         }
       })
-
     this.modalRef.onClose.subscribe((updatedProduct: ProductModalCloseResult) => {
       if (updatedProduct.save === true) {
         let id = updatedProduct.product.id;
@@ -55,8 +47,5 @@ export class ProductsComponent {
         )
       }
     })
-
   }
-    this.modalUpdateProductOpen = false
-
-  }}
+}
