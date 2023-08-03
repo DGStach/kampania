@@ -4,6 +4,7 @@ import {Product} from "../product";
 import {ModalComponent} from '../modal/modal.component';
 import {ProductModalCloseResult} from "../productModalCloseResult";
 import {allproducts, createProduct} from "../mock-products";
+import {BudgetService} from "../budget/budget-service";
 
 @Component({
   selector: 'app-new-product',
@@ -15,7 +16,7 @@ export class NewProductComponent {
 
   selectedProduct?: Product
 
-  constructor(private modalService: MdbModalService) {
+  constructor(private modalService: MdbModalService, public budgetService: BudgetService) {
 
     this.product = {
       id: "",
@@ -23,7 +24,8 @@ export class NewProductComponent {
       cost: 0,
       city: "",
       scope: "",
-      keywords:[]
+      keywords:[],
+      includeInBudget: true
     };
   }
 
@@ -48,6 +50,7 @@ export class NewProductComponent {
       this.modalRef.onClose.subscribe((updatedProduct: ProductModalCloseResult) => {
         if (updatedProduct.save === true) {
           createProduct(updatedProduct.product);
+          if (updatedProduct.product.includeInBudget) this.budgetService.decrease(updatedProduct.product.cost);
         }
       })
   }

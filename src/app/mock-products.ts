@@ -13,7 +13,8 @@ export const allproducts: Product[] = [
     cost: 1000,
     scope: "5km",
     city: "Grodno",
-    keywords:["AFRICA", "EUROPE"]
+    keywords:["AFRICA", "EUROPE"],
+    includeInBudget: true
   },
   {
     id: "a060cc9a-a97e-44b3-bf2c-ab28dc5de85b",
@@ -21,7 +22,8 @@ export const allproducts: Product[] = [
     cost: 500,
     scope: "15km",
     city: "Limanowa",
-    keywords:["AFRICA", "EUROPE", "AUSTRALIA"]
+    keywords:["AFRICA", "EUROPE", "AUSTRALIA"],
+    includeInBudget: true
 
 },
   {
@@ -30,7 +32,8 @@ export const allproducts: Product[] = [
     cost: 800,
     scope: "25km",
     city: "Warsaw",
-    keywords:[]
+    keywords:[],
+    includeInBudget: true
   },
   {
     id: "1d121011-d0b9-4606-abed-fb09944fd43e",
@@ -38,6 +41,7 @@ export const allproducts: Product[] = [
     cost: 200,
     scope: "3km",
     city: "Przeworsk",
-    keywords:["ASIA"]
+    keywords:["ASIA"],
+    includeInBudget: true
   }
 ]

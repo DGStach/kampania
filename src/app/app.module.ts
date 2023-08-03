@@ -24,6 +24,7 @@ import {ModalComponent} from "./modal/modal.component";
 import { NewProductComponent } from './new-product/new-product.component';
 import {DropDownListModule} from "@syncfusion/ej2-angular-dropdowns";
 import { BudgetComponent } from './budget/budget.component';
+import {BudgetService} from "./budget/budget-service";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { BudgetComponent } from './budget/budget.component';
     BrowserAnimationsModule,
     DropDownListModule
 ],
-  providers: [],
+  providers: [BudgetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

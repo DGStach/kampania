@@ -5,12 +5,25 @@
       <button (click)="delete(product.id)" >DELETE</button>
         <h2>{{product.name| uppercase}} </h2>
         Details:
+      <div>
+        <input
+          mdbCheckbox
+          class="form-check-input"
+          type="checkbox"
+          id="flexSwitchCheckDefault"
+          [(ngModel)]="product.includeInBudget"
+          (change) = "checkValue($event, product)"
+        />
+        <label class="form-check-label" for="flexSwitchCheckDefault"
+        >budget</label>
+      </div>
         <button type="button"  class="btn btn-primary" (click)="openModal(product)">
-
           <div><span>id: </span>{{product.id}}</div>
           <div><span>cost: </span>{{product.cost}}<span>$</span></div>
           <div><span>city: </span>{{product.city}}</div>
           <div><span>scope: </span>{{product.scope}}</div>
+          <div><span>budget: </span>{{product.includeInBudget}}</div>
+
         </button>
     </li>
   </ul>

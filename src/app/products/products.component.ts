@@ -4,6 +4,8 @@ import {allproducts} from "../mock-products"
 import {ModalComponent} from '../modal/modal.component';
 import {MdbModalRef, MdbModalService} from 'mdb-angular-ui-kit/modal';
 import {ProductModalCloseResult} from "../productModalCloseResult";
+import * as events from "events";
+import {BudgetService} from "../budget/budget-service";
 
 @Component({
   selector: 'app-products',
@@ -16,7 +18,17 @@ export class ProductsComponent {
   selectedProduct?: Product
 
   constructor(
-    private modalService: MdbModalService) {
+    private modalService: MdbModalService, public budgetService: BudgetService) {
+  }
+
+  checkValue(ev:any, product:any):void {
+    product.includeInBudget = ev.currentTarget.checked;
+ allproducts.forEach((el, index) => {
+     if (el.id === product.id) {
+       allproducts[index] = el
+     }
+   }
+ )
   }
 
   delete(id: string) {
@@ -24,6 +36,8 @@ export class ProductsComponent {
       if (product.id == id) {
         let indexDeletedProduct = allproducts.indexOf(product)
         allproducts.splice(indexDeletedProduct, 1)
+        if (product.includeInBudget) this.budgetService.increase(product.cost);
+
       }
     })
   }
@@ -31,7 +45,8 @@ export class ProductsComponent {
   openModal(product: Product): void {
     this.modalRef = this.modalService.open(ModalComponent,
       {
-        ignoreBackdropClick: true, backdrop: false,
+        ignoreBackdropClick: true,
+        backdrop: false,
         data: {
           product: {...product}
         }
