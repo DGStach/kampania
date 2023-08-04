@@ -23,10 +23,11 @@
         <label class="form-check-label" for="flexSwitchCheckDefault">budget</label>
       </div><br>
         <div  class="detailContainer btn btn-primary" (click)="openModal(product)">
-          <div><span>cost: </span>{{product.cost}}<span>$</span></div>
+          <div><span>cost: </span>{{product.cost}}$</div>
           <div><span>city: </span>{{product.city}}</div>
-          <div><span>scope: </span>{{product.scope}}<span>km</span></div>
-          <label class="modal-body-label" for="name">keywords: {{product.keywords}}</label>
+          <div><span>scope: </span>{{product.scope}}km</div>
+          <div><span>keywords: </span>{{product.keywords}}</div>
+
         </div>
     </li>
   </ul>
