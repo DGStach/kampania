@@ -10,8 +10,8 @@
 }
 .container-product-Cards{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 }
 .cheeckBox-Container-display{
   display: inline-flex;

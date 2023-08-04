@@ -1,6 +1,9 @@
-header{
-  display: inline-flex;
+a{
+  cursor: pointer;
 }
-main{
-  display: block;
+
+#footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
