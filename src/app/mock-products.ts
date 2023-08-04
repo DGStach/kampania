@@ -13,7 +13,7 @@ export const allproducts: Product[] = [
     cost: 1000,
     scope: 5,
     city: "Grodno",
-    keywords:["NORTH AMERICA", "EUROPE", "AUSTRALIA"],
+    keywords:["NORTH&nbspAMERICA", "EUROPE", "AUSTRALIA"],
     includeInBudget: true
   },
   {
@@ -22,7 +22,7 @@ export const allproducts: Product[] = [
     cost: 500,
     scope: 15,
     city: "Limanowa",
-    keywords:["AFRICA","EUROPE", "SOUTH AMERICA"],
+    keywords:["AFRICA","EUROPE", "SOUTH&nbspAMERICA"],
     includeInBudget: true
 
 },
