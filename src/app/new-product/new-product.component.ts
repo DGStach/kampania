@@ -23,7 +23,7 @@ export class NewProductComponent {
       name: "",
       cost: 0,
       city: "",
-      scope: "",
+      scope: 0,
       keywords:[],
       includeInBudget: true
     };

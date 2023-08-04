@@ -3,35 +3,39 @@
     <h5 class="modal-title" id="exampleModalLabel">{{product.name}}</h5>
   </div>
   <div class="modal-body">
-    <label class="modal-body-label" for="cost">cost: </label>
-    <input class="modal-body-input" id="cost" [(ngModel)]="product.cost" placeholder="cost" >
-    <label class="modal-body-label" for="scope">city: </label>
-    <ng-select
-      class="modal-body-cityDropDownList"
-      [items]="cities"
-      bindLabel="city"
-      bindValue="city"
-      [(ngModel)]="product.city"
-      placeholder="select city"
-    >
-    </ng-select>
-    <ng-select
-      class="modal-body-cityDropDownList"
-      [multiple]="true"
-      [items]="keywords"
-      bindLabel="name"
-      bindValue="name"
-      [(ngModel)]="product.keywords"
-      placeholder="Select Continent"
-    >
-    </ng-select>
-    <label class="modal-body-label" for="scope">scope: </label>
-    <input class="modal-body-input" id="scope" [(ngModel)]="product.scope" placeholder="scope"><br>
     <label class="modal-body-label" for="name">name: </label>
     <input class="modal-body-input" id="name" [(ngModel)]="product.name" placeholder="name"><br>
+    <label class="modal-body-label" for="cost">cost: </label>
+    <input class="modal-body-input" id="cost" [(ngModel)]="product.cost" placeholder="cost" ><br>
+    <div class="dropDownList-Container">
+      <label class="modal-body-label" for="city">city: </label>
+      <ng-select
+        class="dropDownList,dropDownList-city "
+        id="city"
+        [items]="cities"
+        bindLabel="city"
+        bindValue="city"
+        [(ngModel)]="product.city"
+        placeholder="select city">
+      </ng-select>
+    </div>
+<div class="dropDownList-Container">
+  <label class="modal-body-label" for="keywords">keywords: </label>
+  <ng-select
+    class="dropDownList"
+    id="keywords"
+    [multiple]="true"
+    [items]="keywords"
+    bindLabel="name"
+    bindValue="name"
+    [(ngModel)]="product.keywords"
+    placeholder="keywords">
+  </ng-select>
+</div><br>
+    <label class="modal-body-label" for="scope">scope: </label>
+    <input class="modal-body-input" id="scope" [(ngModel)]="product.scope" placeholder="scope"><br>
   </div>
   <div>
-    HERE IS A MESSAGE
     {{messageFormValidationError}}
   </div>
   <div class="modal-footer">

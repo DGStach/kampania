@@ -1,6 +1,6 @@
-import { Component, Input} from '@angular/core';
-import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
-import { Product } from '../product';
+import {Component, Input} from '@angular/core';
+import {MdbModalRef} from 'mdb-angular-ui-kit/modal';
+import {Product} from '../product';
 import {Keyword, keywords} from '../mock-keywords'
 
 @Component({
@@ -10,18 +10,18 @@ import {Keyword, keywords} from '../mock-keywords'
 })
 export class ModalComponent {
 
-  public messageFormValidationError?:string|"STRING MESSAGE"
+  messageFormValidationError = ""
 
-    @Input() product: Product = {
+  @Input() product: Product = {
     id: "",
     name: '',
     cost: 0,
     city: '',
-    scope: '',
-    keywords:[],
+    scope:0,
+    keywords: [],
     includeInBudget: true
   };
-  keywords:Keyword[]
+  keywords: Keyword[]
 
   constructor(public modalRef: MdbModalRef<ModalComponent>) {
 
@@ -37,27 +37,48 @@ export class ModalComponent {
     {city: "Nowy Targ"}
   ];
 
-validationFormFun=()=>{
-  if(this.product.cost && this.product.city && this.product.name && this.product.scope ){
-   this.messageFormValidationError = "enter all values"
-  }
-  if(this.product.cost < 0){
-    this.messageFormValidationError = "enter cost bigger then 0"
-  }
+  validationFormFun = () => {
+    if (this.product.cost && this.product.city && this.product.name && this.product.scope) {
+      this.messageFormValidationError = "enter all values"
+    }
+    if (this.product.cost < 0) {
+      this.messageFormValidationError = "enter cost bigger then 0"
+    }
   }
 
   save() {
-    this.validationFormFun()
-    this.modalRef.close({
-      save: true,
-      product: this.product
-    });
+    console.log(this.product.city)
+    let valid = true;
+    if (!this.product.name) {
+      this.messageFormValidationError = "enter name"
+      valid = false;
+    }
+    if (!this.product.cost) {
+      this.messageFormValidationError = "enter cost"
+      valid = false;
+    }  if (!this.product.city) {
+      this.messageFormValidationError = "enter city"
+      valid = false;
+    } if (!this.product.scope) {
+      this.messageFormValidationError = "enter scope"
+      valid = false;
+    }
+    if (this.product.cost < 0) {
+      this.messageFormValidationError = "enter cost > 0"
+      valid = false;
+    }
+    if (valid) {
+      this.modalRef.close({
+        save: true,
+        product: this.product
+      });
+    }
   }
 
   close() {
-    this.modalRef.close({
-      save: false,
-      product: this.product
-    });
+      this.modalRef.close({
+        save: false,
+        product: this.product
+      });
   }
 }

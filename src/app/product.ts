@@ -4,7 +4,7 @@ export interface Product {
   id:string;
   name: string;
   cost: number;
-  scope: string;
+  scope: number;
   city: string;
   keywords:string[];
   includeInBudget: boolean;
