@@ -32,7 +32,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ProductsComponent,
     ModalComponent,
     NewProductComponent,
-    BudgetComponent
+    BudgetComponent,
   ],
   imports: [
     BrowserModule,

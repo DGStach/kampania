@@ -7,9 +7,8 @@ export const keywords: Keyword[] = []
 
 allproducts.forEach((product)=>{
   product.keywords.forEach((keyword)=>{
-    if(keywords.indexOf(keyword)){
-      keywords.push(keyword)
+    if(!keywords.find((el)=>el.name === keyword)){
+      keywords.push({name: keyword})
     }
   })
 })
-keywords.sort()

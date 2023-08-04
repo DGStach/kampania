@@ -4,7 +4,7 @@
   </div>
   <div class="modal-body">
     <label class="modal-body-label" for="cost">cost: </label>
-    <input class="modal-body-input" id="cost" [(ngModel)]="product.cost" placeholder="cost">
+    <input class="modal-body-input" id="cost" [(ngModel)]="product.cost" placeholder="cost" >
     <label class="modal-body-label" for="scope">city: </label>
     <ng-select
       class="modal-body-cityDropDownList"
@@ -20,6 +20,7 @@
       [multiple]="true"
       [items]="keywords"
       bindLabel="name"
+      bindValue="name"
       [(ngModel)]="product.keywords"
       placeholder="Select Continent"
     >
@@ -29,7 +30,10 @@
     <label class="modal-body-label" for="name">name: </label>
     <input class="modal-body-input" id="name" [(ngModel)]="product.name" placeholder="name"><br>
   </div>
-
+  <div>
+    HERE IS A MESSAGE
+    {{messageFormValidationError}}
+  </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="close()">
       Close

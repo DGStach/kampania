@@ -4,7 +4,6 @@ import {allproducts} from "../mock-products"
 import {ModalComponent} from '../modal/modal.component';
 import {MdbModalRef, MdbModalService} from 'mdb-angular-ui-kit/modal';
 import {ProductModalCloseResult} from "../productModalCloseResult";
-import * as events from "events";
 import {BudgetService} from "../budget/budget-service";
 
 @Component({

@@ -6,6 +6,6 @@ export interface Product {
   cost: number;
   scope: string;
   city: string;
-  keywords:Keyword[];
+  keywords:string[];
   includeInBudget: boolean;
 }
