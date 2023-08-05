@@ -47,7 +47,7 @@ export class ModalComponent {
   }
 
   save() {
-    console.log(this.product.city)
+    console.log("`jESTEM W SAVE FUNCTION");
     let valid = true;
     if (!this.product.name) {
       this.messageFormValidationError = "enter name"

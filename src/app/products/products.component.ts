@@ -15,11 +15,15 @@ export class ProductsComponent {
   products = allproducts
   modalRef: MdbModalRef<ModalComponent> | null = null;
   selectedProduct?: Product
+
   constructor(
     private modalService: MdbModalService, public budgetService: BudgetService) {
   }
+
   checkValue(ev: any, product: any): void {
     product.includeInBudget = ev.currentTarget.checked;
+    if (product.includeInBudget) this.budgetService.increase(product.cost);
+    if (!product.includeInBudget) this.budgetService.decrease(product.cost);
     allproducts.forEach((el, index) => {
         if (el.id === product.id) {
           allproducts[index] = el
@@ -27,16 +31,17 @@ export class ProductsComponent {
       }
     )
   }
+
   delete(id: string) {
     allproducts.forEach((product) => {
       if (product.id == id) {
         let indexDeletedProduct = allproducts.indexOf(product)
         allproducts.splice(indexDeletedProduct, 1)
         if (product.includeInBudget) this.budgetService.increase(product.cost);
-
       }
     })
   }
+
   openModal(product: Product): void {
     this.modalRef = this.modalService.open(ModalComponent,
       {
