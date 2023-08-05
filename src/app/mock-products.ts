@@ -6,6 +6,11 @@ export const createProduct = (product: Product) => {
   allproducts.push(product);
 }
 
+/*
+localhost:5000/mockProducts
+*/
+
+
 export const allproducts: Product[] = [
   {
     id: "874f0d37-07a0-4ae0-a613-929c17e7b668",
@@ -13,7 +18,7 @@ export const allproducts: Product[] = [
     cost: 1000,
     scope: 5,
     city: "Grodno",
-    keywords:["NORTH AMERICA ", "EUROPE ", "AUSTRALIA "],
+    keywords:[" NORTH AMERICA", " EUROPE ", " AUSTRALIA"],
     includeInBudget: true
   },
   {
@@ -22,7 +27,7 @@ export const allproducts: Product[] = [
     cost: 500,
     scope: 15,
     city: "Limanowa",
-    keywords:["AFRICA","EUROPE", "SOUTH AMERICA"],
+    keywords:[" AFRICA"," EUROPE", " SOUTH AMERICA"],
     includeInBudget: true
 
 },
@@ -31,7 +36,7 @@ export const allproducts: Product[] = [
     name: "CAMPAIGN 3",
     cost: 800,
     scope: 25,
-    city: "Warsaw",
+    city: " Warsaw",
     keywords:[],
     includeInBudget: true
   },
@@ -41,7 +46,7 @@ export const allproducts: Product[] = [
     cost: 200,
     scope: 3,
     city: "Przeworsk",
-    keywords:["ASIA", "AUSTRALIA"],
+    keywords:[" ASIA", " AUSTRALIA"],
     includeInBudget: true
   }
 ]

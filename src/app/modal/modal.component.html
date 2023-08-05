@@ -5,7 +5,7 @@
   <div class="modal-body">
     <label class="modal-body-label" for="name">name: </label>
     <input class="modal-body-input" id="name" [(ngModel)]="product.name" placeholder="name"><br>
-    <label class="modal-body-label" for="cost">cost: </label>
+    <label class="modal-body-label" for="cost">cost [$]: </label>
     <input class="modal-body-input" id="cost" type="number" [(ngModel)]="product.cost" placeholder="cost"><br>
     <div class="dropDownList-Container">
       <label class="modal-body-label" for="city">city: </label>
@@ -32,7 +32,7 @@
         placeholder="keywords">
       </ng-select>
     </div>
-    <br><label class="modal-body-label" for="scope">scope: </label>
+    <br><label class="modal-body-label" for="scope">scope [km]: </label>
     <input class="modal-body-input" type="number" id="scope" [(ngModel)]="product.scope" placeholder="scope">
   </div>
   <div>

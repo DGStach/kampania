@@ -24,7 +24,6 @@
 
 .deleteIconContainer{
   position: relative;
-
 }
 .deleteIconSVG{
   position: absolute;
@@ -36,9 +35,17 @@
 .detailContainer{
   text-align: inherit;
   width:200px;
+  position: relative;
+
 }
 
 .detailContainer>div>span:first-child{
   font-weight: 900;
+}
+.pencilIcon{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
 }
 
