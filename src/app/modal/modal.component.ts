@@ -46,24 +46,24 @@ export class ModalComponent {
 
   save() {
     let valid = true;
-    if (!this.product.name) {
-      this.messageFormValidationError = "enter name"
+    if (!this.product.scope) {
+      this.messageFormValidationError = "enter scope"
+      valid = false;
+    }
+    if (!this.product.city) {
+      this.messageFormValidationError = "enter city"
+      valid = false;
+    }
+    if (this.product.cost < 0) {
+      this.messageFormValidationError = "enter cost > 0"
       valid = false;
     }
     if (!this.product.cost) {
       this.messageFormValidationError = "enter cost"
       valid = false;
     }
-
-    if (!this.product.city) {
-      this.messageFormValidationError = "enter city"
-      valid = false;
-    } if (!this.product.scope) {
-      this.messageFormValidationError = "enter scope"
-      valid = false;
-    }
-    if (this.product.cost < 0) {
-      this.messageFormValidationError = "enter cost > 0"
+    if (!this.product.name) {
+      this.messageFormValidationError = "enter name"
       valid = false;
     }
     if (valid) {
