@@ -11,7 +11,7 @@
   display: inline-block;
   width: 100px;
 }
-.dropDownList-Container{
+.dropDownList-Container, .modal-body-input{
 display: inline-flex;
   margin-bottom: 5px;
 
@@ -19,6 +19,7 @@ display: inline-flex;
 .modal-body-input, .dropDownList, #city {
   width: 300px;
 }
+
 @media(max-width: 500px){
   .modal-body-input, .dropDownList, #city {
     width: 200px;
@@ -27,9 +28,12 @@ display: inline-flex;
     margin-bottom: 5px;
   }
   .modal-template-container {
-    width: 250px
+    min-width: 250px
   }
+  }
+
+@media(max-width: 387px){
   .dropDownList-Container{
     display: block;
   }
-  }
+}
