@@ -56,7 +56,9 @@ export class ModalComponent {
     if (!this.product.cost) {
       this.messageFormValidationError = "enter cost"
       valid = false;
-    }  if (!this.product.city) {
+    }
+
+    if (!this.product.city) {
       this.messageFormValidationError = "enter city"
       valid = false;
     } if (!this.product.scope) {

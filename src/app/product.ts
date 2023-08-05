@@ -1,4 +1,3 @@
-import {Keyword} from "./mock-keywords";
 
 export interface Product {
   id:string;
