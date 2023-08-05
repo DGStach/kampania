@@ -2,8 +2,9 @@
   "name": "kampania",
   "version": "0.0.0",
   "scripts": {
-    "build": "react-scripts build && rm -rf docs && mv build docs && git add docs",
+    "buildGithub": "ng build && rm -rf docs && mv build docs && git add docs",
     "gh-pages-build": "parcel build --public-url .",
+    "deploy": "gh-pages -d build",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
