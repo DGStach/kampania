@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class BudgetService {
 
-  left : number = 0;
+  left : number = 10000;
 
   decrease(amount: number) {
     console.log("decrease")

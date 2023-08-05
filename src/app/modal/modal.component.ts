@@ -22,9 +22,7 @@ export class ModalComponent {
     includeInBudget: true
   };
   keywords: Keyword[]
-
   constructor(public modalRef: MdbModalRef<ModalComponent>) {
-
     this.keywords = keywords
   }
 

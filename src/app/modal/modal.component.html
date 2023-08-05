@@ -3,12 +3,12 @@
     <h5 class="modal-title" id="exampleModalLabel">{{product.name}}</h5>
   </div>
   <div class="modal-body">
-    <label class="modal-body-label" for="name">name: </label>
+    <label class="modal-body-label" for="name">name*: </label>
     <input class="modal-body-input" id="name" [(ngModel)]="product.name" placeholder="name"><br>
-    <label class="modal-body-label" for="cost">cost [$]: </label>
-    <input class="modal-body-input" id="cost" type="number" [(ngModel)]="product.cost" placeholder="cost"><br>
+    <label class="modal-body-label" for="cost">cost* [$]: </label>
+    <input class="modal-body-input" maxlength="10" id="cost" type="number" [(ngModel)]="product.cost" placeholder="cost"><br>
     <div class="dropDownList-Container">
-      <label class="modal-body-label" for="city">city: </label>
+      <label class="modal-body-label" for="city">city*: </label>
       <ng-select
         class="dropDownList,dropDownList-city "
         id="city"
@@ -32,10 +32,10 @@
         placeholder="keywords">
       </ng-select>
     </div>
-    <br><label class="modal-body-label" for="scope">scope [km]: </label>
+    <br><label class="modal-body-label" maxlength="4" for="scope">scope* [km]: </label>
     <input class="modal-body-input" type="number" id="scope" [(ngModel)]="product.scope" placeholder="scope">
   </div>
-  <div>
+  <div class="messageFormValidationError">
     {{messageFormValidationError}}
   </div>
   <div class="modal-footer">

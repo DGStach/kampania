@@ -17,7 +17,7 @@ export class ProductsComponent {
   modalRef: MdbModalRef<ModalComponent> | null = null;
   modalDeleteRef: MdbModalRef<ModalDeleteComponent> | null = null;
   selectedProduct?: Product
-
+  onOfFromBudget = `belong too`;
   constructor(
     private modalService: MdbModalService, public budgetService: BudgetService) {
   }
@@ -30,8 +30,14 @@ export class ProductsComponent {
 
   checkValue(ev: any, product: any): void {
     product.includeInBudget = ev.currentTarget.checked;
-    if (product.includeInBudget) this.budgetService.increase(product.cost);
-    if (!product.includeInBudget) this.budgetService.decrease(product.cost);
+    if (product.includeInBudget) {
+      this.budgetService.increase(product.cost)
+      this.onOfFromBudget = "belong too"
+    };
+    if (!product.includeInBudget) {
+      this.budgetService.decrease(product.cost);
+      this.onOfFromBudget = "exclude from"
+    };
     allproducts.forEach((el, index) => {
         if (el.id === product.id) {
           allproducts[index] = el

@@ -18,7 +18,7 @@ export const allproducts: Product[] = [
     cost: 1000,
     scope: 5,
     city: "Grodno",
-    keywords:[" NORTH AMERICA", " EUROPE ", " AUSTRALIA"],
+    keywords:[" NORTH AMERICA", " EUROPE", " AUSTRALIA"],
     includeInBudget: true
   },
   {
@@ -36,7 +36,7 @@ export const allproducts: Product[] = [
     name: "CAMPAIGN 3",
     cost: 800,
     scope: 25,
-    city: " Warsaw",
+    city: " Warsow",
     keywords:[],
     includeInBudget: true
   },
