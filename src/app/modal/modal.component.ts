@@ -48,7 +48,7 @@ export class ModalComponent {
 
   save() {
     let valid = true;
-/*    if (!this.product.name) {
+    if (!this.product.name) {
       this.messageFormValidationError = "enter name"
       valid = false;
     }
@@ -67,7 +67,7 @@ export class ModalComponent {
     if (this.product.cost < 0) {
       this.messageFormValidationError = "enter cost > 0"
       valid = false;
-    }*/
+    }
     if (valid) {
       this.modalRef.close({
         save: true,

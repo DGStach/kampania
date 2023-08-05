@@ -19,3 +19,17 @@ display: inline-flex;
 .modal-body-input, .dropDownList, #city {
   width: 300px;
 }
+@media(max-width: 500px){
+  .modal-body-input, .dropDownList, #city {
+    width: 200px;
+  }
+  .modal-body-input{
+    margin-bottom: 5px;
+  }
+  .modal-template-container {
+    width: 250px
+  }
+  .dropDownList-Container{
+    display: block;
+  }
+  }
