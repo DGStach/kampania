@@ -5,7 +5,7 @@ import {ModalComponent} from '../modal/modal.component';
 import {MdbModalRef, MdbModalService} from 'mdb-angular-ui-kit/modal';
 import {ProductModalCloseResult} from "../productModalCloseResult";
 import {BudgetService} from "../budget/budget-service";
-import {ModalDeleteComponent} from  "../modal-delete/modal-delete.component"
+import {ModalDeleteComponent} from "../modal-delete/modal-delete.component"
 
 @Component({
   selector: 'app-products',
@@ -15,20 +15,18 @@ import {ModalDeleteComponent} from  "../modal-delete/modal-delete.component"
 export class ProductsComponent {
   products = allproducts
   modalRef: MdbModalRef<ModalComponent> | null = null;
+  modalDeleteRef: MdbModalRef<ModalDeleteComponent> | null = null;
   selectedProduct?: Product
 
   constructor(
     private modalService: MdbModalService, public budgetService: BudgetService) {
   }
 
-  modalDeleteRef: MdbModalRef<ModalDeleteComponent> | null = null;
-
-  openModalDelete(product: Product): void{
-  this.modalDeleteRef = this.modalService.open(ModalDeleteComponent, {
-    data: { product }
-  })
-}
-
+  openModalDelete(product: Product): void {
+    this.modalDeleteRef = this.modalService.open(ModalDeleteComponent, {
+      data: {product}
+    })
+  }
 
   checkValue(ev: any, product: any): void {
     product.includeInBudget = ev.currentTarget.checked;
@@ -44,8 +42,7 @@ export class ProductsComponent {
 
   delete(id: string) {
     this.modalService.open(ModalComponent)
-
-      allproducts.forEach((product) => {
+    allproducts.forEach((product) => {
       if (product.id == id) {
         let indexDeletedProduct = allproducts.indexOf(product)
         allproducts.splice(indexDeletedProduct, 1)
