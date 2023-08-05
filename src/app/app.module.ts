@@ -25,6 +25,7 @@ import { NewProductComponent } from './new-product/new-product.component';
 import { BudgetComponent } from './budget/budget.component';
 import {BudgetService} from "./budget/budget-service";
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ModalComponent,
     NewProductComponent,
     BudgetComponent,
+    ModalDeleteComponent
   ],
   imports: [
     BrowserModule,

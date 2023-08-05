@@ -16,7 +16,8 @@ export class NewProductComponent {
 
   selectedProduct?: Product
 
-  constructor(private modalService: MdbModalService, public budgetService: BudgetService) {
+  constructor(private modalService: MdbModalService,
+              public budgetService: BudgetService) {
 
     this.product = {
       id: "",

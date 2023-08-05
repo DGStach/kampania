@@ -5,6 +5,7 @@ import {ModalComponent} from '../modal/modal.component';
 import {MdbModalRef, MdbModalService} from 'mdb-angular-ui-kit/modal';
 import {ProductModalCloseResult} from "../productModalCloseResult";
 import {BudgetService} from "../budget/budget-service";
+import {ModalDeleteComponent} from  "../modal-delete/modal-delete.component"
 
 @Component({
   selector: 'app-products',
@@ -20,6 +21,15 @@ export class ProductsComponent {
     private modalService: MdbModalService, public budgetService: BudgetService) {
   }
 
+  modalDeleteRef: MdbModalRef<ModalDeleteComponent> | null = null;
+
+  openModalDelete(product: Product): void{
+  this.modalDeleteRef = this.modalService.open(ModalDeleteComponent, {
+    data: { product }
+  })
+}
+
+
   checkValue(ev: any, product: any): void {
     product.includeInBudget = ev.currentTarget.checked;
     if (product.includeInBudget) this.budgetService.increase(product.cost);
@@ -33,7 +43,9 @@ export class ProductsComponent {
   }
 
   delete(id: string) {
-    allproducts.forEach((product) => {
+    this.modalService.open(ModalComponent)
+
+      allproducts.forEach((product) => {
       if (product.id == id) {
         let indexDeletedProduct = allproducts.indexOf(product)
         allproducts.splice(indexDeletedProduct, 1)
