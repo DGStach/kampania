@@ -1,15 +1,11 @@
 import {Product} from "./product";
 import {v4 as uuidv4} from 'uuid';
 
+
 export const createProduct = (product: Product) => {
   product.id = uuidv4();
   allproducts.push(product);
 }
-
-/*
-localhost:5000/mockProducts
-*/
-
 
 export const allproducts: Product[] = [
   {

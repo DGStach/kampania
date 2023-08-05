@@ -26,6 +26,7 @@ import { BudgetComponent } from './budget/budget.component';
 import {BudgetService} from "./budget/budget-service";
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
     MdbTooltipModule,
     MdbValidationModule,
     BrowserAnimationsModule,
-    NgSelectModule
+    NgSelectModule,
+    HttpClientModule
 ],
   providers: [BudgetService],
   bootstrap: [AppComponent]

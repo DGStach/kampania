@@ -18,6 +18,15 @@
 </header>
 <main id = "main">
   <app-products></app-products>
+  <div *ngIf="newData">
+    <h1>Data from API:</h1>
+    <ul>
+      <li *ngFor="let item of newData">
+        {{ item.name }} <!-- Replace 'propertyName' with the actual property you want to display -->
+      </li>
+    </ul>
+  </div>
+  blablablsbdcalscbla
 </main>
 <footer id ="footer">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
