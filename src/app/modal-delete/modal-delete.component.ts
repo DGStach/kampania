@@ -2,7 +2,9 @@ import {Component, Input} from '@angular/core';
 import {MdbModalRef, MdbModalService} from 'mdb-angular-ui-kit/modal';
 import {Product} from "../product";
 import {BudgetService} from "../budget/budget-service";
-import {allproducts} from "../mock-products";
+import {currentProducts} from "../currentProducts";
+import {ApigetProducts} from "../service"
+
 @Component({
   selector: 'app-modal',
   templateUrl: 'modal-delete.component.html',
@@ -21,16 +23,24 @@ export class ModalDeleteComponent {
 
   constructor(public modalDeleteRef: MdbModalRef<ModalDeleteComponent>,
               public budgetService: BudgetService,
-              public modalService: MdbModalService) {}
+              public modalService: MdbModalService,
+              private _apiservice: ApigetProducts,
 
-  delete(id:string) {
-    allproducts.forEach((product) => {
+  ) {}
+
+  delete(product:any) {
+    this._apiservice.removeProducts(product).subscribe(res => {
+      if (product.includeInBudget) this.budgetService.increase(product.cost);
+      currentProducts.length = 0;
+      currentProducts.push(...res)
+      this.modalDeleteRef.close()
+    })
+/*    allproducts.forEach((product) => {
       if (product.id == id) {
         let indexDeletedProduct = allproducts.indexOf(product)
         allproducts.splice(indexDeletedProduct, 1)
         if (product.includeInBudget) this.budgetService.increase(product.cost);
       }
-    })
-    this.modalDeleteRef.close();
+    })*/
   }
 }

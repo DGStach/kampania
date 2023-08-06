@@ -5,6 +5,8 @@ import {ModalComponent} from '../modal/modal.component';
 import {ProductModalCloseResult} from "../productModalCloseResult";
 import {allproducts, createProduct} from "../mock-products";
 import {BudgetService} from "../budget/budget-service";
+import {ApigetProducts} from "../service";
+import {currentProducts} from "../currentProducts";
 
 @Component({
   selector: 'app-new-product',
@@ -17,7 +19,8 @@ export class NewProductComponent {
   selectedProduct?: Product
 
   constructor(private modalService: MdbModalService,
-              public budgetService: BudgetService) {
+              public budgetService: BudgetService,
+              private _apiservice: ApigetProducts) {
 
     this.product = {
       id: "",
@@ -25,34 +28,33 @@ export class NewProductComponent {
       cost: 0,
       city: "",
       scope: 0,
-      keywords:[],
+      keywords: [],
       includeInBudget: true
     };
   }
-
   product: Product;
 
   openModal(product: Product): void {
 
-      allproducts.forEach((el) => {
-        if (el.id > this.product.id) {
-          this.product.id = el.id
+    this.modalRef = this.modalService.open(ModalComponent,
+      {
+        data: {
+          product: {...product}
         }
       })
-      this.product.id += 1
 
-      this.modalRef = this.modalService.open(ModalComponent,
-        {
-          data: {
-            product: {...product}
+    this.modalRef.onClose.subscribe((updatedProduct: ProductModalCloseResult) => {
+      if (updatedProduct && updatedProduct.save) {
+        this._apiservice.createProducts(updatedProduct.product).subscribe(
+          res => {
+            if (res.includeInBudget) this.budgetService.decrease(res.cost)
+            this._apiservice.getProducts().subscribe(res => {
+              currentProducts.length = 0;
+              currentProducts.push(...res);
+            })
           }
-        })
-
-      this.modalRef.onClose.subscribe((updatedProduct: ProductModalCloseResult) => {
-        if (updatedProduct && updatedProduct.save) {
-          createProduct(updatedProduct.product);
-          if (updatedProduct.product.includeInBudget) this.budgetService.decrease(updatedProduct.product.cost);
-        }
-      })
+        )
+      }
+    })
   }
 }

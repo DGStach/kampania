@@ -35,16 +35,16 @@ export class ModalComponent {
     {city: "Nowy Targ"}
   ];
 
-  validationFormFun = () => {
+/*  validationF ormFun = () => {
     if (this.product.cost && this.product.city && this.product.name && this.product.scope) {
       this.messageFormValidationError = "enter all values"
     }
     if (this.product.cost < 0) {
       this.messageFormValidationError = "enter cost bigger then 0"
     }
-  }
+  }*/
 
-  save() {
+  validationFormFun() {
     let valid = true;
 
     if (!this.product.scope) {
