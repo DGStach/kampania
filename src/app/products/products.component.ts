@@ -1,11 +1,13 @@
 import {Component} from '@angular/core';
-import {Product} from "../product"
-import {allproducts} from "../mock-products"
+import {Product} from "./product"
 import {ModalComponent} from '../modal/modal.component';
 import {MdbModalRef, MdbModalService} from 'mdb-angular-ui-kit/modal';
 import {ProductModalCloseResult} from "../productModalCloseResult";
 import {BudgetService} from "../budget/budget-service";
 import {ModalDeleteComponent} from "../modal-delete/modal-delete.component"
+import {ApigetProducts} from '../service'
+import {currentProducts} from "./currentProducts";
+import {calculateKeywords} from "../keywords";
 
 @Component({
   selector: 'app-products',
@@ -13,42 +15,48 @@ import {ModalDeleteComponent} from "../modal-delete/modal-delete.component"
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  products = allproducts
+  products = currentProducts;
   modalRef: MdbModalRef<ModalComponent> | null = null;
   modalDeleteRef: MdbModalRef<ModalDeleteComponent> | null = null;
   selectedProduct?: Product
+  onOfFromBudget = `belong too`;
 
   constructor(
-    private modalService: MdbModalService, public budgetService: BudgetService) {
+    private modalService: MdbModalService,
+    public budgetService: BudgetService,
+    private _apiservice: ApigetProducts
+  ) {
+  }
+
+  ngOnInit() {
+    this._apiservice.getProducts().subscribe(res => {
+      this.products.push(...res);
+      calculateKeywords();
+    })
   }
 
   openModalDelete(product: Product): void {
     this.modalDeleteRef = this.modalService.open(ModalDeleteComponent, {
       data: {product}
-    })
+    });
   }
 
+
+// function checkValue increase (checkbox is checked) or decrease (checkbox is not checked) budgetService.
   checkValue(ev: any, product: any): void {
     product.includeInBudget = ev.currentTarget.checked;
-    if (product.includeInBudget) this.budgetService.increase(product.cost);
-    if (!product.includeInBudget) this.budgetService.decrease(product.cost);
-    allproducts.forEach((el, index) => {
+    if (product.includeInBudget) {
+      this.budgetService.increase(product.cost)
+    }
+    if (!product.includeInBudget) {
+      this.budgetService.decrease(product.cost);
+    }
+    currentProducts.forEach((el, index) => {
         if (el.id === product.id) {
-          allproducts[index] = el
+          currentProducts[index] = el
         }
       }
     )
-  }
-
-  delete(id: string) {
-    this.modalService.open(ModalComponent)
-    allproducts.forEach((product) => {
-      if (product.id == id) {
-        let indexDeletedProduct = allproducts.indexOf(product)
-        allproducts.splice(indexDeletedProduct, 1)
-        if (product.includeInBudget) this.budgetService.increase(product.cost);
-      }
-    })
   }
 
   openModal(product: Product): void {
@@ -61,14 +69,16 @@ export class ProductsComponent {
         }
       })
     this.modalRef.onClose.subscribe((updatedProduct: ProductModalCloseResult) => {
-      if (updatedProduct.save === true) {
-        let id = updatedProduct.product.id;
-        allproducts.forEach((el, index) => {
-            if (el.id === id) {
-              allproducts[index] = updatedProduct.product
-            }
-          }
-        )
+      if (updatedProduct && updatedProduct.save) {
+        this._apiservice.updateProducts(updatedProduct.product).subscribe(() => {
+          this._apiservice.getProducts().subscribe(res => {
+            currentProducts.length = 0;
+            currentProducts.push(...res);
+            currentProducts.forEach((product) => {
+              if (product.includeInBudget) this.budgetService.decrease(product.cost);
+            })
+          })
+        })
       }
     })
   }
