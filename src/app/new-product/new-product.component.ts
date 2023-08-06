@@ -49,7 +49,7 @@ export class NewProductComponent {
         })
 
       this.modalRef.onClose.subscribe((updatedProduct: ProductModalCloseResult) => {
-        if (updatedProduct.save === true) {
+        if (updatedProduct && updatedProduct.save) {
           createProduct(updatedProduct.product);
           if (updatedProduct.product.includeInBudget) this.budgetService.decrease(updatedProduct.product.cost);
         }

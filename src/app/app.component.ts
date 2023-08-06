@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiserviceService } from './service'
+import { ApigetProducts } from './service'
 
 @Component({
   selector: 'app-root',
@@ -10,10 +10,10 @@ import { ApiserviceService } from './service'
 export class AppComponent {
 
   newData:any;
-  constructor(private _apiservice:ApiserviceService) {}
+  constructor(private _apiservice:ApigetProducts) {}
 
 ngOnInit(){
-    this._apiservice.getdata().subscribe(res=>{
+    this._apiservice.getProducts().subscribe(res=>{
       this.newData=res;
       console.log(res)
     })

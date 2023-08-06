@@ -16,6 +16,7 @@
         bindLabel="city"
         bindValue="city"
         [(ngModel)]="product.city"
+        [clearable]="false"
         placeholder="select city">
       </ng-select>
     </div>
@@ -28,6 +29,9 @@
         [items]="keywords"
         bindLabel="name"
         bindValue="name"
+        [clearable]="false"
+        [hideSelected]="true"
+        [closeOnSelect]="false"
         [(ngModel)]="product.keywords"
         placeholder="keywords">
       </ng-select>

@@ -6,7 +6,7 @@ import {MdbModalRef, MdbModalService} from 'mdb-angular-ui-kit/modal';
 import {ProductModalCloseResult} from "../productModalCloseResult";
 import {BudgetService} from "../budget/budget-service";
 import {ModalDeleteComponent} from "../modal-delete/modal-delete.component"
-import {ApiserviceService} from '../service'
+import {ApigetProducts} from '../service'
 
 @Component({
   selector: 'app-products',
@@ -24,12 +24,11 @@ export class ProductsComponent {
   constructor(
     private modalService: MdbModalService,
     public budgetService: BudgetService,
-    private _apiservice: ApiserviceService
-  ) {
-  }
+    private _apiservice: ApigetProducts
+  ) {}
 
   ngOnInit() {
-    this._apiservice.getdata().subscribe(res => {
+    this._apiservice.getProducts().subscribe(res => {
       this.newData = res;
       console.log(res)
     })
