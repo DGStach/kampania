@@ -64,6 +64,7 @@ export class ProductsComponent {
       {
         ignoreBackdropClick: true,
         backdrop: false,
+        keyboard:false,
         data: {
           product: {...product}
         }

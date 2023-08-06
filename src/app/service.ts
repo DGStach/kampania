@@ -7,24 +7,25 @@ import {Product} from "./products/product";
   providedIn: "root"
 })
 
+
 export class ApigetProducts {
   constructor(private http: HttpClient) {
   }
 
   getProducts(): Observable<any> {
-    return this.http.get<any>("http://localhost:5000/products")
+    return this.http.get<any>("https://kampaniabackend.onrender.com/products")
   }
 
   createProducts(product: Product): Observable<any> {
-    return this.http.post<any>(`http://localhost:5000/products`, product)
+    return this.http.post<any>(`https://kampaniabackend.onrender.com/products`, product)
   }
 
   updateProducts(product: Product): Observable<any> {
-    return this.http.put<any>(`http://localhost:5000/products/${product.id}`, product)
+    return this.http.put<any>(`https://kampaniabackend.onrender.com/${product.id}`, product)
   }
 
   removeProducts(product: Product): Observable<any> {
-    return this.http.delete<any>(`http://localhost:5000/products/${product.id}`)
+    return this.http.delete<any>(`https://kampaniabackend.onrender.com/${product.id}`)
   }
 
 }
