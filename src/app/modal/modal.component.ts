@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {MdbModalRef} from 'mdb-angular-ui-kit/modal';
-import {Product} from '../product';
+import {Product} from '../products/product';
 import {Keyword, keywords} from '../keywords'
 
 @Component({

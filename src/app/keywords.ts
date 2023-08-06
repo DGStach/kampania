@@ -1,4 +1,4 @@
-import {currentProducts} from "./currentProducts";
+import {currentProducts} from "./products/currentProducts";
 
 export interface Keyword {
   name: string

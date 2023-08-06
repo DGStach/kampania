@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {BudgetService} from "./budget-service";
-import {currentProducts} from "../currentProducts";
+import {currentProducts} from "../products/currentProducts";
 
 @Component({
   selector: 'app-budget',

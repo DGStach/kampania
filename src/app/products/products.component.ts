@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
-import {Product} from "../product"
+import {Product} from "./product"
 import {ModalComponent} from '../modal/modal.component';
 import {MdbModalRef, MdbModalService} from 'mdb-angular-ui-kit/modal';
 import {ProductModalCloseResult} from "../productModalCloseResult";
 import {BudgetService} from "../budget/budget-service";
 import {ModalDeleteComponent} from "../modal-delete/modal-delete.component"
 import {ApigetProducts} from '../service'
-import {currentProducts} from "../currentProducts";
+import {currentProducts} from "./currentProducts";
 import {calculateKeywords} from "../keywords";
 
 @Component({
