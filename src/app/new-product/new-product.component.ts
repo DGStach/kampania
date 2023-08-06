@@ -37,6 +37,7 @@ export class NewProductComponent {
 
     this.modalRef = this.modalService.open(ModalComponent,
       {
+        keyboard:false,
         data: {
           product: {...product}
         }
