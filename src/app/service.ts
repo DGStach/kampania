@@ -21,11 +21,11 @@ export class ApigetProducts {
   }
 
   updateProducts(product: Product): Observable<any> {
-    return this.http.put<any>(`https://kampaniabackend.onrender.com/${product.id}`, product)
+    return this.http.put<any>(`https://kampaniabackend.onrender.com/products/${product.id}`, product)
   }
 
   removeProducts(product: Product): Observable<any> {
-    return this.http.delete<any>(`https://kampaniabackend.onrender.com/${product.id}`)
+    return this.http.delete<any>(`https://kampaniabackend.onrender.com/products/${product.id}`)
   }
 
 }
