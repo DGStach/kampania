@@ -7,6 +7,7 @@ import {Product} from "./products/product";
   providedIn: "root"
 })
 
+
 export class ApigetProducts {
   constructor(private http: HttpClient) {
   }
