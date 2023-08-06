@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {MdbModalRef} from 'mdb-angular-ui-kit/modal';
 import {Product} from '../product';
-import {Keyword, keywords} from '../mock-keywords'
+import {Keyword, keywords} from '../keywords'
 
 @Component({
   selector: 'app-modal',
@@ -10,7 +10,7 @@ import {Keyword, keywords} from '../mock-keywords'
 })
 export class ModalComponent {
 
-  messageFormValidationError = ""
+  messageFormValidationError = "";
 
   @Input() product: Product = {
     id: "",

@@ -3,7 +3,6 @@ import {MdbModalRef, MdbModalService} from 'mdb-angular-ui-kit/modal';
 import {Product} from "../product";
 import {ModalComponent} from '../modal/modal.component';
 import {ProductModalCloseResult} from "../productModalCloseResult";
-import {allproducts, createProduct} from "../mock-products";
 import {BudgetService} from "../budget/budget-service";
 import {ApigetProducts} from "../service";
 import {currentProducts} from "../currentProducts";
