@@ -1,12 +1,12 @@
-import {Product} from "./product";
+/*import {Product} from "./product";
 import {v4 as uuidv4} from 'uuid';
 
 
 export const createProduct = (product: Product) => {
   product.id = uuidv4();
   allproducts.push(product);
-}
-
+}*/
+/*
 export const allproducts: Product[] = [
   {
     id: "874f0d37-07a0-4ae0-a613-929c17e7b668",
@@ -45,4 +45,4 @@ export const allproducts: Product[] = [
     keywords:[" ASIA", " AUSTRALIA"],
     includeInBudget: true
   }
-]
+]*/

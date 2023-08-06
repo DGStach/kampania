@@ -85,10 +85,13 @@ export class ProductsComponent {
       })
     this.modalRef.onClose.subscribe((updatedProduct: ProductModalCloseResult) => {
       if (updatedProduct && updatedProduct.save) {
-        this._apiservice.updateProducts(updatedProduct.product).subscribe(res=>{
+        this._apiservice.updateProducts(updatedProduct.product).subscribe(()=>{
           this._apiservice.getProducts().subscribe(res=>{
             currentProducts.length = 0;
             currentProducts.push(...res);
+            currentProducts.forEach((product)=>{
+              if (product.includeInBudget) this.budgetService.decrease(product.cost);
+            })
           })
         })
       }

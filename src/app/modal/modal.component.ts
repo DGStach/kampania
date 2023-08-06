@@ -17,11 +17,12 @@ export class ModalComponent {
     name: '',
     cost: 0,
     city: '',
-    scope:0,
+    scope: 0,
     keywords: [],
     includeInBudget: true
   };
   keywords: Keyword[]
+
   constructor(public modalRef: MdbModalRef<ModalComponent>) {
     this.keywords = keywords
   }
@@ -34,15 +35,6 @@ export class ModalComponent {
     {city: "Gdansk"},
     {city: "Nowy Targ"}
   ];
-
-/*  validationF ormFun = () => {
-    if (this.product.cost && this.product.city && this.product.name && this.product.scope) {
-      this.messageFormValidationError = "enter all values"
-    }
-    if (this.product.cost < 0) {
-      this.messageFormValidationError = "enter cost bigger then 0"
-    }
-  }*/
 
   validationFormFun() {
     let valid = true;
@@ -76,9 +68,9 @@ export class ModalComponent {
   }
 
   close() {
-      this.modalRef.close({
-        save: false,
-        product: this.product
-      });
+    this.modalRef.close({
+      save: false,
+      product: this.product
+    });
   }
 }
