@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiserviceService } from './service'
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +9,6 @@ import { ApiserviceService } from './service'
 
 export class AppComponent {
 
-  test:any;
   newData:any;
   constructor(private _apiservice:ApiserviceService) {}
 

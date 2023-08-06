@@ -6,6 +6,7 @@ import {MdbModalRef, MdbModalService} from 'mdb-angular-ui-kit/modal';
 import {ProductModalCloseResult} from "../productModalCloseResult";
 import {BudgetService} from "../budget/budget-service";
 import {ModalDeleteComponent} from "../modal-delete/modal-delete.component"
+import {ApiserviceService} from '../service'
 
 @Component({
   selector: 'app-products',
@@ -18,8 +19,20 @@ export class ProductsComponent {
   modalDeleteRef: MdbModalRef<ModalDeleteComponent> | null = null;
   selectedProduct?: Product
   onOfFromBudget = `belong too`;
+  newData: any;
+
   constructor(
-    private modalService: MdbModalService, public budgetService: BudgetService) {
+    private modalService: MdbModalService,
+    public budgetService: BudgetService,
+    private _apiservice: ApiserviceService
+  ) {
+  }
+
+  ngOnInit() {
+    this._apiservice.getdata().subscribe(res => {
+      this.newData = res;
+      console.log(res)
+    })
   }
 
   openModalDelete(product: Product): void {
@@ -33,11 +46,12 @@ export class ProductsComponent {
     if (product.includeInBudget) {
       this.budgetService.increase(product.cost)
       this.onOfFromBudget = "belong too"
-    };
+    }
     if (!product.includeInBudget) {
       this.budgetService.decrease(product.cost);
       this.onOfFromBudget = "exclude from"
-    };
+    }
+
     allproducts.forEach((el, index) => {
         if (el.id === product.id) {
           allproducts[index] = el

@@ -46,6 +46,7 @@ export class ModalComponent {
 
   save() {
     let valid = true;
+
     if (!this.product.scope) {
       this.messageFormValidationError = "enter scope"
       valid = false;
