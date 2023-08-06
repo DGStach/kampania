@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {allproducts} from "../mock-products";
 import {BudgetService} from "./budget-service";
+import {currentProducts} from "../products/currentProducts";
 
 @Component({
   selector: 'app-budget',
@@ -16,7 +16,7 @@ export class BudgetComponent {
     this.updateBudget();
   }
   updateBudget():void{
-    allproducts.forEach((product)=>{
+    currentProducts.forEach((product)=>{
       if (product.includeInBudget) this.budgetService.decrease(product.cost);
       }
     )

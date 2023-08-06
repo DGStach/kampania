@@ -19,6 +19,9 @@ display: inline-flex;
 .modal-body-input, .dropDownList, #city {
   width: 300px;
 }
+.messageFormValidationError{
+  color: #dc4c64;
+}
 
 @media(max-width: 500px){
   .modal-body-input, .dropDownList, #city {
